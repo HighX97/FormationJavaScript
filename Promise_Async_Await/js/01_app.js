@@ -24,7 +24,7 @@ var getCallBackPosts = function (success , error) {
     getCallBack('https://jsonplaceholder.typicode.com/posts/'+users[0]["id"]+'/comments', function (response) {
       var posts = JSON.parse(response);
       success(posts);
-      console.log("################ Post" + posts[0]);
+      //console.log("################ Post" + posts[0]);
     }, function (e) {
       error("Erreur Ajax ", e);
     })
