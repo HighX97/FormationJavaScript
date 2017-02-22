@@ -1,7 +1,8 @@
+//@Tuto : https://www.grafikart.fr/tutoriels/javascript/promise-async-await-875
+
 //Users : https://jsonplaceholder.typicode.com/users
 
 //Comments : https://jsonplaceholder.typicode.com/comments
-
 //Comments of User 1 : https://jsonplaceholder.typicode.com/posts/1/comments
 var i = 0 ;
 var log = document.getElementById('log');

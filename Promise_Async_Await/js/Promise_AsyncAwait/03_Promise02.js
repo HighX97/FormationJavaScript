@@ -33,7 +33,7 @@ var showResponse = function (response) {
 }
 
 // on crée une nouvelle promesse :
-var getPromise = function (url) {
+var getPromise2 = function (url) {
   return new Promise(
     // La fonction de résolution est appelée avec la capacité de
     // tenir ou de rompre la promesse
@@ -44,8 +44,8 @@ var getPromise = function (url) {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 ){
           if (xhr.status === 200){
-            resolve(xhr.responseText) ;
           } else {
+            resolve(xhr.responseText) ;
             reject(xhr)
           }
         }
@@ -55,54 +55,50 @@ var getPromise = function (url) {
     });
   }
 
-var getPromisePosts = function () {
-  return new Promise(
-    function(resolve , reject) {
-      getPromise('https://jsonplaceholder.typicode.com/users')
+var getPromise2Posts = function () {
+  return getPromise2('https://jsonplaceholder.typicode.com/users')
       .then(function (response) {
         var users = JSON.parse(response);
         throw "Users founded"
-        return getPromise('https://jsonplaceholder.typicode.com/posts/'+users[0]["id"]+'/comments')})
+        return getPromise2('https://jsonplaceholder.typicode.com/posts/'+users[0]["id"]+'/comments')})
       .then(function (response) {
         var posts = JSON.parse(response);
-        resolve(posts);
-      }).catch(catchError)
-  .catch(catchError)
-})}
+        return posts;
+      })}
 
-var getPromisePostsFailed_00 = function () {
-  return getPromise('https://jsonplaceholder.typicode.com/usersSSS')
+var getPromise2PostsFailed_00 = function () {
+  return getPromise2('https://jsonplaceholder.typicode.com/usersSSS')
       .then(function (response) {
         var users = JSON.parse(response);
-        return getPromise('https://jsonplaceholder.typicode.com/posts/'+users[0]["id"]+'/comments')})
+        return getPromise2('https://jsonplaceholder.typicode.com/posts/'+users[0]["id"]+'/comments')})
         .then(function (response) {
           var posts = JSON.parse(response);
           return posts;
         })}
 
-var getPromisePostsFailed_01 = function () {
-  return getPromise('https://jsonplaceholder.typicode.com/users')
+var getPromise2PostsFailed_01 = function () {
+  return getPromise2('https://jsonplaceholder.typicode.com/users')
       .then(function (response) {
         var users = JSON.parse(response);
-        return getPromise('https://jsonplaceholder.typicode.com/postTs/'+users[0]["id"]+'/comments')
+        return getPromise2('https://jsonplaceholder.typicode.com/postTs/'+users[0]["id"]+'/comments')
         .then(function (response) {
           var posts = JSON.parse(response);
           return posts;
         })
 })}
 
-getPromise('https://jsonplaceholder.typicode.com/users')
+getPromise2('https://jsonplaceholder.typicode.com/users')
 .then(showResponse)
 .catch(catchError);
 
-getPromisePosts()
+getPromise2Posts()
 .then(showResponse)
 .catch(catchError);
 
-getPromisePostsFailed_00()
+getPromise2PostsFailed_00()
 .then(showResponse)
 .catch(catchError);
 
-getPromisePostsFailed_01()
+getPromise2PostsFailed_01()
 .then(showResponse)
 .catch(catchError);
