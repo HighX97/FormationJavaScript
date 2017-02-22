@@ -1,0 +1,30 @@
+.image {
+  width : 35%;
+  padding: 10px;
+}
+
+.image > img {
+  width : 100%;
+  height: auto;
+}
+
+.text {
+  width : 65%;
+}
+
+.text p {
+  text-align: justify;
+}
+
+.text .image {
+  -webkit-transform: rotateY(150deg); /* Safari */
+transform: rotateY(150deg); /* Standard syntax */
+  opacity: 1;
+  transition: tranform 0.4s , opacity 0.4s;
+}
+
+.text.not-visible ,.image.not-visible {
+  -webkit-transform: rotateY(450deg); /* Safari */
+transform: rotateY(450deg); /* Standard syntax */
+  opacity: 0;
+}
