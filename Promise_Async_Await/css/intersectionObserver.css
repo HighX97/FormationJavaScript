@@ -1,3 +1,22 @@
+#a {
+    width: 100px;
+    height: 100px;
+    background: red;
+    opacity: 1;
+    -webkit-transform: translateX(50); /* Safari */
+    transform: translateX(50);    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s , tranform 0.4s , opacity 4s;
+
+}
+
+#a:hover {
+  -webkit-transform: translateX(150) ; /* Safari */
+transform: translateX(150);
+width: 300px;
+opacity: 0;
+
+}
+
 .image {
   width : 35%;
   padding: 10px;
@@ -16,15 +35,11 @@
   text-align: justify;
 }
 
-.text .image {
-  -webkit-transform: rotateY(150deg); /* Safari */
-transform: rotateY(150deg); /* Standard syntax */
+.text , .image {
   opacity: 1;
   transition: tranform 0.4s , opacity 0.4s;
 }
 
-.text.not-visible ,.image.not-visible {
-  -webkit-transform: rotateY(450deg); /* Safari */
-transform: rotateY(450deg); /* Standard syntax */
+.text.not-visible , .image.not-visible {
   opacity: 0;
 }
