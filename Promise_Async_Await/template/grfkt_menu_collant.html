@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{background-color:#EEEEEE;font-family:sans-serif}*{box-sizing:border-box}.topbar{background-color:#fff;height:50px;line-height:50px;font-size:20px;padding:0 60px;font-weight:bold;border-bottom:1px solid #bababa}.menu{background-color:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);display:flex;z-index:10}.menu a{display:inline-block;text-decoration:none;padding:15px 30px;color:#505050;border-right:1px solid #bababa}.menu a:hover{background-color:#EEEEEE}.menu.fixed{opacity:0.9}.content{margin-top:20px}.main{padding:0 20px;float:left;width:75%;background-color:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)}.sidebar{float:right;width:25%;padding:0 20px}.sidebar-container{position:relative;height:600px;border:2px dashed #bababa}.bloc{background-color:#fff;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)}
+        </style>
+    </head>
+    <body>
+        <div class="topbar">
+            MENU COLLANT
+        </div>
+
+        <div class="menu" data-sticky>
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+            <a href="#">Item 4</a>
+            <a href="#">Item 5</a>
+        </div>
+
+        <div class="content">
+            <div class="main">
+                <h1>Je suis un titre</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid at consequuntur cum dignissimos, doloremque doloribus eius expedita harum natus nisi perferendis, reiciendis repellat suscipit unde veritatis voluptas voluptatibus? Quod!</p>
+                <div style="background-color:#d5d5d5; height: 4000px;"></div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-container">
+                    <div class="bloc" data-sticky data-offset="68" data-constraint=".sidebar-container">
+                        <p>
+                        Je suis aussi collant, mais par contre vu que je suis timide je ne sors pas de mon bloc parent quand on scroll.
+                        </p>
+                        <p>
+                            <a href="https://www.grafikart.fr/formations/debuter-javascript/menu-collant">Voir le tutoriel</a>
+                        </p>
+                    </div>
+                    &nbsp;
+                    <div class="bloc" >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat praesentium, a vero. Consequuntur, ipsa aliquid quidem, molestias veniam repudiandae aut numquam animi magnam, reiciendis consectetur! Sunt culpa tempora fuga rem.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <script>
+            !function(){var a=function(){var a=void 0!==window.pageXOffset,b="CSS1Compat"===(document.compatMode||"");return a?window.pageYOffset:b?document.documentElement.scrollTop:document.body.scrollTop};window.makeSticky=function(b){var c,d,e,f,g=parseInt(b.getAttribute("data-offset")||0,10),h=document.body;b.getAttribute("data-constraint")&&(h=document.querySelector(b.getAttribute("data-constraint")));var i=document.createElement("div"),j=function(){c=b.getBoundingClientRect(),e=h.getBoundingClientRect(),f=e.top+a()+e.height-g-c.height,d=c.top+a(),i.style.width=c.width+"px",i.style.height=c.height+"px"},k=function(){a()>f&&"absolute"!=b.style.position?(b.style.position="absolute",b.style.bottom="0",b.style.top="auto"):a()>d-g&&a()<f&&"fixed"!=b.style.position?(b.classList.add("fixed"),b.style.position="fixed",b.style.top=g+"px",b.style.bottom="auto",b.style.width=c.width+"px",b.parentNode.insertBefore(i,b)):a()<d-g&&"static"!=b.style.position&&(b.classList.remove("fixed"),b.style.position="static",b.parentNode.contains(i)&&b.parentNode.removeChild(i))},l=function(){b.style.width="auto",b.classList.remove("fixed"),b.style.position="static",i.style.display="none",j(),i.style.display="block",k()};window.addEventListener("scroll",k),window.addEventListener("resize",l),j()};for(var b=document.querySelectorAll("[data-sticky]"),c=0;c<b.length;c++)makeSticky(b[c])}();
+        </script>
+    </body>
+</html>
