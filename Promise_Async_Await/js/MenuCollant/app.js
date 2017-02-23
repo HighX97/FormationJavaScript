@@ -53,6 +53,8 @@
           element.style.bottom = 'auto'
           element.style.position = 'fixed'
           element.style.top= offset + "px"
+          console.log("element.style.width",element.style.width);
+          console.log("rect.width",rect.width);
           element.style.width = rect.width
           element.parentNode.insertBefore(fake, element)
         }

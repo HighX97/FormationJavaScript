@@ -1,0 +1,14 @@
+.spoiler-content {
+  display: inline-block;
+  width: 1;
+  height: 1;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.spoiler-content.visible {
+  display: inline;
+  width: auto;
+  height: auto;
+  opacity: 1;
+}
